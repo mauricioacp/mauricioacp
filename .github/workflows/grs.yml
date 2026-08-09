@@ -1,0 +1,58 @@
+name: Update README cards
+
+# Regenerates the GitHub stats card as a static SVG committed into this repo, so
+# the README never depends on a third-party service being up at render time.
+# (The public github-readme-stats.vercel.app instance is currently paused.)
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Never let two runs race on a push to the same branch.
+concurrency:
+  group: readme-cards
+  cancel-in-progress: false
+
+jobs:
+  cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&theme=tokyonight&hide_border=false
+          path: profile/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Fail loudly instead of committing a "Something went wrong" card:
+          # the last good SVG stays in place until the next run succeeds.
+          fail_on_error: "true"
+
+      # Optional second card. The README currently shows one card on purpose —
+      # uncomment this step and its embed in README.md if you want the breakdown.
+      # - name: Generate top languages card
+      #   uses: stats-organization/github-readme-stats-action@v2
+      #   with:
+      #     card: top-langs
+      #     options: username=${{ github.repository_owner }}&layout=compact&theme=tokyonight
+      #     path: profile/top-langs.svg
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     fail_on_error: "true"
+
+      - name: Commit cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/*.svg
+          if git diff --quiet --cached; then
+            echo "Cards unchanged; nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore: update README stat cards"
+          git push

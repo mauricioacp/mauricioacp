@@ -6,6 +6,8 @@
 
 ## I'm a Father, Developer, Teacher, and Coach!!
 
+Currently building EUDR compliance software for global supply chains at [Prewave][prewave].
+
 - 👨‍👩‍👧 Proud father balancing family life with tech passion
 - 🧠 Teaching emotional intelligence and personal development for 8+ years
 - 🌱 Currently mastering cloud-native architectures and AI integration
@@ -36,8 +38,13 @@
 <table>
   <tr>
     <td align="center" width="50%">
-      <h3>🏦 Enterprise Banking Solutions</h3>
-      <p>Building scalable financial systems with microservices and microfrontends</p>
+      <h3>🌍 Supply Chain Intelligence @ Prewave</h3>
+      <p>
+        Making <a href="https://www.prewave.com/solutions/eudr">EUDR</a> compliance workable at scale —
+        EU <strong>TRACES</strong>-connected Due Diligence Statements,
+        <strong>deforestation</strong> risk checks against the 2020 cutoff, and
+        <strong>legality</strong> assessments that hold up under audit.
+      </p>
     </td>
     <td align="center" width="50%">
       <h3>🎓 La Akademia</h3>
@@ -58,17 +65,9 @@
 
 ### 📊 GitHub Stats
 
+<!-- Generated in-repo by .github/workflows/grs.yml — no third-party service at render time. -->
 <div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=mauricioacp&theme=tokyonight" alt="Mauricio's GitHub profile summary" />
-</div>
-
-<div align="center">
-  <img height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=mauricioacp&theme=tokyonight" alt="Top languages by repository count" />
-  <img height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=mauricioacp&theme=tokyonight" alt="Top languages by commit count" />
-</div>
-
-<div align="center">
-  <img src="https://streak-stats.demolab.com?user=mauricioacp&theme=tokyonight&hide_border=false" alt="Mauricio's contribution streak" />
+  <img src="./profile/stats.svg" alt="Mauricio's GitHub statistics" />
 </div>
 
 ---
@@ -98,6 +97,7 @@ I'm always interested in:
 [website]: https://mauriciocavallini.com
 [linkedin]: https://www.linkedin.com/in/mauriciocavalliniangularexpertdev
 [github]: https://github.com/mauricioacp
+[prewave]: https://www.prewave.com/
 [angular]: https://angular.dev/
 [typescript]: https://www.typescriptlang.org/
 [react]: https://react.dev/
